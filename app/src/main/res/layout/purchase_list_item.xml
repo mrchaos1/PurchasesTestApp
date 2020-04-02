@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="purchase"
+            type="com.example.testapp1.model.Purchase" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="0dp"
+        android:layout_marginHorizontal="0dp"
+        >
+        
+        <ImageView
+            android:id="@+id/purchaseImageView"
+            android:padding="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/ic_menu_camera" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingVertical="16dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/purchasePriceView"
+            app:layout_constraintStart_toEndOf="@+id/purchaseImageView"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/purchaseTitleView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{purchase.text}"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/purchaseDescriptionView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{purchase.text}"
+                android:textColor="@android:color/tertiary_text_light" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/purchasePriceView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@={`` + purchase.price}"
+            android:paddingVertical="16dp"
+            android:paddingHorizontal="8dp"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
